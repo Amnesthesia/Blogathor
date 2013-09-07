@@ -15,10 +15,14 @@
 				$_getUsers, 
 				$_createUser,
 				$_updateUser,
-				$_pw_salt = "ph'nglui mglw'nafh C'thulhu R'lyeh wgah'nagl fhtagn";
+				$_pw_salt;
 		
 		function __construct()
 		{
+			// Get the password salt from config file
+			$this->_pw_salt = Configuration::getSalt();
+			
+			// Try to connect to the database
 			try
 			{
 				self::$_db = new PDO("mysql:host=127.0.0.1;dbname=oblig", "datamodellering", "lolphpwhynotrails?");

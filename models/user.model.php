@@ -243,7 +243,7 @@ class User
 		 function setPassword($password = "")
 		 {
 		 	if(isset($password) && !empty($password))
-				$this->_hashword = crypt($password, $this->_db->getSalt());
+				$this->_hashword = crypt($password, Configuration::getSalt());
 			return $this->_hashword;
 		 }
 		 

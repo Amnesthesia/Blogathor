@@ -18,7 +18,6 @@ class PostController extends Controller
 	 */
 	function all($params = array())
 	{
-		global $page_name;	
 		if(count($params)<1)
 			$pagination = 25;
 		else 
@@ -30,7 +29,7 @@ class PostController extends Controller
 			$pagination = 25;
 		
 		$post_list = Post::getPostList($pagination-25);
-		$page_parameters = array("page_title" => $page_name, "post_list" => $post_list);
+		$page_parameters = array("page_title" => Configuration::getSiteName(), "post_list" => $post_list);
 		
 		return array("page_title" => "Posts", "view" => "list", "params" => $page_parameters);
 	}
