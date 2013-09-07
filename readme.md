@@ -36,25 +36,25 @@ I also thought it would be nice to learn how MVC was actually implemented from s
 
 ## Structure & Description
 1. Models
-..* All models are found in the models/ directory
-..* Models are (like in rails) "objects of a table". Each model corresponds to a table of the same name (but in lowercase)
+  * All models are found in the models/ directory
+  * Models are (like in rails) "objects of a table". Each model corresponds to a table of the same name (but in lowercase)
 2. Controllers
-..* All controllers are found in the controller/ directory
-..* Controllers are named [Modelname]Controller (like PostController, UserController, and so on)
-..* Controllers are require()'d after models.
-..* The base controller is simply named Controller
-..* The base controller provides redirect() functionality to derived child-controllers
-..* The base controller processes the "route" $_GET variable and calls the action/view
+  * All controllers are found in the controller/ directory
+  * Controllers are named [Modelname]Controller (like PostController, UserController, and so on)
+  * Controllers are require()'d after models.
+  * The base controller is simply named Controller
+  * The base controller provides redirect() functionality to derived child-controllers
+  * The base controller processes the "route" $_GET variable and calls the action/view
 3. Views
-..* Views are found in the views/ directory
-..* Views can be named anything, as long as they end with .view.php
-..* Views only contain HTML, and the processing of $parameters (global array returned from the page's controller action with information required for the specific view)
+  * Views are found in the views/ directory
+  * Views can be named anything, as long as they end with .view.php
+  * Views only contain HTML, and the processing of $parameters (global array returned from the page's controller action with information required for the specific view)
 4. Miscellaneous
-..* If a stylesheet named [view].style.css is found in the assets/stylesheets/ directory, it will be included after all other stylesheets as to allow CSS overriding on a per-view basis
-..* For neat and quick CSS/JS, Twitter Bootstrap is used
-..* For layout in a lovely grid, Twitter Bootstrap's grid is used
-..* For simple but sweet post formatting, TinyMCE for jQuery is loaded
-..* All configuration variables (like password salt, site name, site slogan and so on) can be found in config.php
-..* Database is a singleton class (I know this is a bad practice, but I dont want multiple instances of it... better suggestions are welcome!) and can only have one instance
-..* Configuration only contains getters, and these are all static (as is all its variables)
-..* Users may create and edit posts, but they may ONLY edit posts if they are the owners of the post in question. However, administrators should be able to edit any post (currently, they cant).
+  * If a stylesheet named [view].style.css is found in the assets/stylesheets/ directory, it will be included after all other stylesheets as to allow CSS overriding on a per-view basis
+  * For neat and quick CSS/JS, Twitter Bootstrap is used
+  * For layout in a lovely grid, Twitter Bootstrap's grid is used
+  * For simple but sweet post formatting, TinyMCE for jQuery is loaded
+  * All configuration variables (like password salt, site name, site slogan and so on) can be found in config.php
+  * Database is a singleton class (I know this is a bad practice, but I dont want multiple instances of it... better suggestions are welcome!) and can only have one instance
+  * Configuration only contains getters, and these are all static (as is all its variables)
+  * Users may create and edit posts, but they may ONLY edit posts if they are the owners of the post in question. However, administrators should be able to edit any post (currently, they cant).
