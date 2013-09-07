@@ -46,12 +46,12 @@ class Controller
 				$controller = new $controller_name;
 				
 				$vital_parameters = call_user_func_array(array($controller,$view_name),$split_route);
-				
 			
 				// All view "actions" must return an array consisting of the view to display
 				// and the parameters to pass to that view.
 				$this->_page_title = $vital_parameters["page_title"];
 				$this->_view = $vital_parameters["view"];
+				
 				$this->_params = $vital_parameters["params"];
 			}
 			catch(Exception $e)

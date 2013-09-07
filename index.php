@@ -33,6 +33,20 @@ foreach($models as $m)
 		require_once($models_dir . $m);
 }
 
+// Check for session user_id, and if it exists, spawn a user object from this, otherwise create a guest user object
+if(!isset($_SESSION["user_id"]))
+{
+	$user = new User();
+	$user->setUsername("Guest");
+	$user->setFirstName("Anonymous");
+	$user->setLastName("Visitor");
+	$user->setRole("3");
+}
+else {
+	$user = new User((int) $_SESSION["user_id"]);
+}
+
+
 // Now, for controllers
 foreach($controllers as $c)
 {
@@ -50,18 +64,6 @@ $view_name = $base_controller->getView();
 // An array of parameters the view can use to display its information (we use views as templates; they are not classes)
 $parameters = $base_controller->getViewParameters();
 
-// Check for session user_id, and if it exists, spawn a user object from this, otherwise create a guest user object
-if(!isset($_SESSION["user_id"]))
-{
-	$user = new User();
-	$user->setUsername("Guest");
-	$user->setFirstName("Anonymous");
-	$user->setLastName("Visitor");
-	$user->setRole("3");
-}
-else {
-	$user = new User((int) $_SESSION["user_id"]);
-}
 
 // Process all javascripts and CSS for the application and insert these on the page
 require_once("application/head.php");
