@@ -25,7 +25,7 @@
 			// Try to connect to the database
 			try
 			{
-				self::$_db = new PDO("mysql:host=127.0.0.1;dbname=oblig", "datamodellering", "lolphpwhynotrails?");
+				self::$_db = new PDO("mysql:host=".Configuration::getDatabaseHost().";dbname=".Configuration::getDatabaseName(), Configuration::getDatabaseUser(), Configuration::getDatabasePassword());
 			}
 			catch(PDOException $e)
 			{

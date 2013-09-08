@@ -10,6 +10,10 @@ class Configuration {
 	
 	static private $_site_name = "Blogathor", 
 			$_site_slogan = "Simple Open Blog Platform",
+			$_database_host = "127.0.0.1",
+			$_database_user = "datamodellering",
+			$_database_password = "lolphpwhynotrails?",
+			$_database_name = "oblig",
 			$_salt = "ph'nglui mglw'nafh C'thulhu R'lyeh wgah'nagl fhtagn",
 			$_view_directory = "views/",
 			$_model_directory = "models/",
@@ -55,6 +59,26 @@ class Configuration {
 	static function getStylesheetDirectory()
 	{
 		return self::$_stylesheet_directory;
+	}
+	
+	static function getDatabaseName()
+	{
+		return self::$_database_name;
+	}
+	
+	static function getDatabaseUser()
+	{
+		return self::$_database_user;
+	}
+	
+	static function getDatabasePassword()
+	{
+		return self::$_database_password;
+	}
+	
+	static function getDatabaseHost()
+	{
+		return self::$_database_host;
 	}
 	
 }
